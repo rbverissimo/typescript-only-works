@@ -68,3 +68,19 @@ function addSomething(a: number, b: number) {
 function printSomething(value: any) {
   console.log(value);
 }
+
+// Generics
+function insertAtBeginning(array: any[], value: any) {
+  const newArray = [value, ...array];
+  return newArray;
+}
+
+const demoArray = [1, 2, 3];
+const updatedArray = insertAtBeginning(demoArray, -1);
+updatedArray[0].spli(""); // no compilation error even tho we can't split a number;
+
+/* GENERICS SOLVE THAT */
+function insertAnythingAtBeginning<T>(array: T[], value: T) {
+  const newArray = [value, ...array];
+  return newArray;
+}
